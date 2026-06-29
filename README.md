@@ -8,47 +8,47 @@ Day8 과제. Git & GitHub 익히기!
 
 # 자주 사용하는 Git 명령어 요약
 
-이번 프로젝트를 진행하며 로컬 저장소 빌드부터 원격 저장소 동기화, 충돌 해결까지 사용한 핵심 명령어 모음입니다.
+- 이번 프로젝트를 진행하며 로컬 저장소 빌드부터 원격 저장소 동기화, 충돌 해결까지 사용한 핵심 명령어 모음입니다.
 
 ## git init
- 현재 위치한 폴더(pwd)를 Git 로컬 저장소로 초기화(Git의 감시를 받는 프로젝트로 선언) `.git` 숨김 폴더 생성 |
+- 현재 위치한 폴더(pwd)를 Git 로컬 저장소로 초기화(Git의 감시를 받는 프로젝트로 선언) `.git` 숨김 폴더 생성 |
 
-## git status` 
- 현재 폴더의 파일 상태(작업시 습관적 확인 필수)
+## git status
+- 현재 폴더의 파일 상태(작업시 습관적 확인 필수)
 
 ## git remote add origin [URL]
-깃허브 원격 저장소(Remote) 주소를 `origin`이라는 이름으로 등록(최초 1회만 하면 됨)
+- 깃허브 원격 저장소(Remote) 주소를 `origin`이라는 이름으로 등록(최초 1회만 하면 됨)
 
 ## git add [파일명]
-변경된 파일을 스테이징 영역(Staging Area=장바구니)에 추가 
+- 변경된 파일을 스테이징 영역(Staging Area=장바구니)에 추가 
 
 ## git add .
-은 전체 추가 
+- 은 전체 추가 
 
 ## git commit -m "[메시지]"`
-staging 된 변경 사항을 확정하고 커밋 메시지 작성
+- staging 된 변경 사항을 확정하고 커밋 메시지 작성
 
 ## git push origin main`
-로컬의 `main`branch(깃허브에 올리기 전 최최최종 임시 저장소) commit 내역을 깃허브로 업로드 
+- 로컬의 `main`branch(깃허브에 올리기 전 최최최종 임시 저장소) commit 내역을 깃허브로 업로드 
 
 ## git checkout -b [브랜치명]
- 새로운 branch를 생성함과 동시에 해당 브랜치로 이동
+- 새로운 branch를 생성함과 동시에 해당 브랜치로 이동
 
 ## git checkout [브랜치명]
-이미 존재하는 특정 branch로 이동
+- 이미 존재하는 특정 branch로 이동
 
 ## git merge [브랜치명]
-현재 브랜치에 지정한 브랜치의 변경 사항을 병합 (충돌 발생 가능)
+- 현재 브랜치에 지정한 브랜치의 변경 사항을 병합 (충돌 발생 가능)
 
 ## Git이 스스로 판단해서 알아서 합쳐주는(Auto-merging) 상황들
 
-- ### 수정한 파일이 아예 다를 때:
- main 브랜치에서는 login.html을 고쳤고, 테스트 브랜치에서는 signup.html을 고쳤다면? 서로 건드린 파일이 아예 다르므로 충돌 없이 완벽하게 합쳐짐.
+### 수정한 파일이 아예 다를 때:
+- main 브랜치에서는 login.html을 고쳤고, 테스트 브랜치에서는 signup.html을 고쳤다면? 서로 건드린 파일이 아예 다르므로 충돌 없이 완벽하게 합쳐짐.
 - 같은 파일이더라도 수정한 줄이 다를 때:
 - 브랜치를 새로 만든 이후에 main 브랜치에서는 아무런 작업도 안 했고, 테스트 브랜치에서만 열심히 코드를 추가했을 떄 완벽하게 합쳐짐.
 
 ## git log --oneline --graph --all
- 모든 브랜치의 커밋 히스토리를 한눈에 그래프 형태로 확인(흐름 분석용)
+- 모든 브랜치의 커밋 히스토리를 한눈에 그래프 형태로 확인(흐름 분석용)
 
 # Merge Conflict(충돌)를 직접 발생시키고 해결하기
 
@@ -62,53 +62,53 @@ staging 된 변경 사항을 확정하고 커밋 메시지 작성
 
 
 # gitignore 쓰는법
-가장 바깥 폴더에 .gitignore라는 이름으로 파일을 만들기(맨 앞에 "."가 반드시 들어가야 함, 확장자(.txt 등)는 붙이지 않음.)
+- 가장 바깥 폴더에 .gitignore라는 이름으로 파일을 만들기(맨 앞에 "."가 반드시 들어가야 함, 확장자(.txt 등)는 붙이지 않음.)
 
 ## 1. 특정 파일 하나만 완벽히 무시하기
-secret.txt
+- secret.txt
 
 ## 2. 특정 폴더(디렉토리) 전체를 통째로 무시하기 (맨 뒤에 슬래시 / 필수)
-node_modules/
-dist/
+- node_modules/
+- dist/
 
 ## 3. 특정 확장자를 가진 파일 전부 무시하기 (와일드카드 * 사용)
-*.log
-*.zip
-.DS_Store    # 맥 시스템이 자동으로 만드는 찌꺼기 파일
+- *.log
+- *.zip
+- .DS_Store    # 맥 시스템이 자동으로 만드는 찌꺼기 파일
 
 ## 4. 예외 설정하기 (느낌표 ! 사용: 이 확장자는 무시하되, 해당 파일은 살려라)
-*.config
-!important.config
+- *.config
+- !important.config
 
 ## 5. 특정 폴더 안의 특정 파일만 지정해서 무시하기
-config/secret.json
+- config/secret.json
 
 # 실무에서 쓰는 추천 리스트
 
 ## 데이터베이스/의존성 (너무 무거움)
-node_modules/
+- node_modules/
 
 ## 빌드 결과물 (자동 생성되므로 올릴 필요 없음)
-dist/
-build/
+- dist/
+- build/
 
 ## 운영체제 시스템 파일 (협업 시 꼬임 방지)
-.DS_Store
-Thumbs.db
+- .DS_Store
+- Thumbs.db
 
 ## 보안 및 환경 변수 파일 (비밀번호, API 키 등이 들어있어 절대 올리면 안 됨)
-.env
-.env.local
+- .env
+- .env.local
 
 # 이미 Git에 올라간 파일을 나중에 무시하고 싶다면
 
 ## 1. 파일은 컴퓨터에 그대로 두고, Git의 감시 대상에서만 제외하기
-git rm --cached secret.txt
+- git rm --cached secret.txt
 
 ## (만약 폴더 전체를 제외하고 싶다면 -r 추가)
-git rm -r --cached node_modules/
+- git rm -r --cached node_modules/
 
 ## 2. 이 상태를 다시 커밋하고 푸시하기
-git add .gitignore
-git commit -m "fix: 이미 추적된 불필요한 파일 감시 제외"
-git push origin main
+- git add .gitignore
+- git commit -m "fix: 이미 추적된 불필요한 파일 감시 제외"
+- git push origin main
