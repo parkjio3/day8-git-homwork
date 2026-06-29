@@ -112,3 +112,9 @@ Day8 과제. Git & GitHub 익히기!
 - git add .gitignore
 - git commit -m "fix: 이미 추적된 불필요한 파일 감시 제외"
 - git push origin main
+
+# 커밋 commit 
+## 종류
+- feat : 새로운 기증추가
+- docs : README.md, 문서, 주석 수정
+- fix : 에러나 버그 수정
